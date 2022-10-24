@@ -11,11 +11,11 @@ public class HighLighterWebDriverListener implements WebDriverListener {
     private WebElement lastElement;
 
     @Override
-    public void beforeFindElement(WebDriver driver, By locator) {
+    public void beforeFindElement(WebDriver driver,By locator) {
         try {
             if (lastElement != null) {
                 ((JavascriptExecutor) driver).executeScript(
-                        "arguments[0].style.border='none'", lastElement);
+                        "arguments[0].style.border='none'",lastElement);
             }
         } catch (Exception e) {
         }
@@ -23,11 +23,11 @@ public class HighLighterWebDriverListener implements WebDriverListener {
     }
 
     @Override
-    public void afterFindElement(WebDriver driver, By locator, WebElement result) {
+    public void afterFindElement(WebDriver driver,By locator,WebElement result) {
         try {
             lastElement = result;
             ((JavascriptExecutor) driver).executeScript(
-                    "arguments[0].style.border='3px solid red'", result);
+                    "arguments[0].style.border='3px solid red'",result);
         } catch (Exception e) {
         }
     }

@@ -11,11 +11,11 @@ public abstract class UIElement {
     protected By by;
     protected String labelName;
 
-    public UIElement(WebDriver driver, By by) {
-        this(driver, by, StringUtils.EMPTY);
+    public UIElement(WebDriver driver,By by) {
+        this(driver,by,StringUtils.EMPTY);
     }
 
-    public UIElement(WebDriver driver, By by, String labelName) {
+    public UIElement(WebDriver driver,By by,String labelName) {
         this.driver = driver;
         this.by = by;
         this.labelName = labelName;

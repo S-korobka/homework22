@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class WaitUtils {
 
-    public static void waitElementToDisappear(WebDriver driver, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigProvider.DRIVER_WAIT_TIMEOUT));
+    public static void waitElementToDisappear(WebDriver driver,WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(ConfigProvider.DRIVER_WAIT_TIMEOUT));
         wait.pollingEvery(Duration.ofSeconds(1));
         wait.ignoring(TimeoutException.class);
         wait.withMessage("Element is not visible");
@@ -22,8 +22,8 @@ public class WaitUtils {
 
     public static void waitUntilElementIsDisplayed(WebElement element) {
         Awaitility.await()
-                .atMost(ConfigProvider.DRIVER_WAIT_TIMEOUT, TimeUnit.SECONDS)
-                .pollInterval(100, TimeUnit.MILLISECONDS)
+                .atMost(ConfigProvider.DRIVER_WAIT_TIMEOUT,TimeUnit.SECONDS)
+                .pollInterval(100,TimeUnit.MILLISECONDS)
                 .ignoreExceptions()
                 .until(element::isDisplayed);
     }

@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class WebDriverFactory {
 
-    private static final String BROWSER = System.getProperty("browser", ConfigProvider.BROWSER);
+    private static final String BROWSER = System.getProperty("browser",ConfigProvider.BROWSER);
     private WebDriver driver;
 
     public WebDriver getDriver() {
@@ -50,17 +50,17 @@ public class WebDriverFactory {
     private WebDriver getSelenoidChromeDriver() {
         if (driver == null) {
             Map<String, Object> selenoidOptions = new HashMap<>();
-            selenoidOptions.put("enableVNC", true);
+            selenoidOptions.put("enableVNC",true);
 
             DesiredCapabilities browser = new DesiredCapabilities();
             browser.setBrowserName("chrome");
             browser.setVersion("106.0");
-            browser.setCapability("selenoid:options", selenoidOptions);
+            browser.setCapability("selenoid:options",selenoidOptions);
 
             try {
                 RemoteWebDriver remoteWebDriver = new RemoteWebDriver(
-                        URI.create(ConfigProvider.SELENOID_HUB).toURL(), browser);
-                remoteWebDriver.manage().window().setSize(new Dimension(1280, 1024));
+                        URI.create(ConfigProvider.SELENOID_HUB).toURL(),browser);
+                remoteWebDriver.manage().window().setSize(new Dimension(1280,1024));
                 remoteWebDriver.setFileDetector(new LocalFileDetector());
                 driver = remoteWebDriver;
             } catch (MalformedURLException e) {

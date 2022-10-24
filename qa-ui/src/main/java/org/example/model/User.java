@@ -10,7 +10,7 @@ public class User {
     private final String email;
     private final String password;
 
-    public User(String userName, String firstName, String lastName, String email, String password) {
+    public User(String userName,String firstName,String lastName,String email,String password) {
         this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,6 +40,17 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public static class Builder {
@@ -75,13 +86,13 @@ public class User {
         }
 
         public User build() {
-            return new User(userName, firstName, lastName, email, password);
+            return new User(userName,firstName,lastName,email,password);
         }
 
         public User buildRandomUser() {
             Faker faker = new Faker();
-            return new User(faker.name().username(), faker.name().firstName(), faker.name().lastName(),
-                    faker.internet().emailAddress(), faker.internet().password());
+            return new User(faker.name().username(),faker.name().firstName(),faker.name().lastName(),
+                    faker.internet().emailAddress(),faker.internet().password());
         }
     }
 }
